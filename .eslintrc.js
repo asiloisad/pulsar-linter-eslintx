@@ -1,29 +1,14 @@
 module.exports = {
-  "root": true,
-  "extends": "eslint:recommended",
-  "env": {
-    "browser": true,
-    "es6":  true,
-    "node": true
+  root: true,
+  extends: "eslint:recommended",
+  env: {
+    es2020: true,
+    node: true,
   },
-  "globals": {
-    "atom": true
+  globals: {
+    atom: "readonly",
   },
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module"
+  parserOptions: {
+    sourceType: "commonjs",
   },
-  "rules": {
-    "function-paren-newline": 0,
-    "object-curly-newline": 0,
-    "no-underscore-dangle": 0,
-    "no-param-reassign": 0,
-    "global-require": 0,
-    "max-len": 0
-  },
-  "settings": {
-    "import/core-modules": [
-      "atom"
-    ]
-  }
 };
