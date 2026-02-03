@@ -6,18 +6,17 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
+  "activationHooks": [
+    "language-javascript:grammar-used",
+    "language-babel:grammar-used",
+    "language-typescript:grammar-used"
+  ],
   "keywords": [
-    "atom",
     "javascript",
     "linter",
-    "lint",
-    "eslint",
-    "airbnb",
-    "standard",
-    "google",
-    "xo"
+    "eslint"
   ],
-  "main": "lib/index.js",
+  "main": "lib/main.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/asiloisad/pulsar-linter-eslint-8.git"
@@ -33,7 +32,9 @@
         "source.es6",
         "source.js.jsx",
         "source.babel",
-        "source.js-semantic"
+        "source.js-semantic",
+        "source.ts",
+        "source.tsx"
       ],
       "items": {
         "type": "string"

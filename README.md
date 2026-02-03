@@ -19,7 +19,7 @@ To install `linter-eslint-8` search for [linter-eslint-8](https://web.pulsar-edi
 
 Commands available in `atom-workspace`:
 
-- `linter-eslint-8:reload`: reset the ESLint engine and re-lint open editors,
+- `linter-eslint-8:reload`: reset the ESLint engine,
 - `linter-eslint-8:open-config`: open the global default ESLint config.
 
 ## Global default config
