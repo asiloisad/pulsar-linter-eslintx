@@ -23,92 +23,6 @@
     "url": "https://github.com/asiloisad/pulsar-linter-eslint.git"
   },
   "configSchema": {
-    "baseconfig": {
-      "title": "Base Config",
-      "description": "Adding values to any property of this group, will result in creating a 'base config' which is passed to ESLint Engine Options (the group below).",
-      "type": "object",
-      "properties": {
-        "extends": {
-          "title": "Extends",
-          "description": "List of ESLint shareable config names. See [shareable configs](http://eslint.org/docs/developer-guide/shareable-configs). Those will be used as *baseConfig.extends*. Example: **standard, standard-react**",
-          "type": "array",
-          "default": [],
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "eslintopts": {
-      "title": "ESLint Engine Options",
-      "description": "See [ESLint options](https://eslint.org/docs/developer-guide/nodejs-api#-new-eslintoptions)",
-      "type": "object",
-      "properties": {
-        "cwd": {
-          "title": "cwd",
-          "description": "The [c]urrent [w]orking [d]irectory, which must be an absolute path and defaults to [process.cwd()](https://nodejs.org/api/process.html#processcwd)",
-          "type": "string",
-          "default": "",
-          "order": 1
-        },
-        "allowInlineConfig": {
-          "title": "Allow inline configuration",
-          "description": " If false, ESLint suppresses directive comments in source code and it overrides the noInlineConfig settings in your configurations.",
-          "type": "boolean",
-          "default": true,
-          "order": 2
-        },
-        "overrideConfigFile": {
-          "title": ".eslintrc.* override file.",
-          "description": "One configuration file, to rule them all (overrides all other files).",
-          "type": "string",
-          "default": "",
-          "order": 3
-        },
-        "reportUnusedDisableDirectives": {
-          "title": "Report unused disable directives",
-          "description": "The severity to report unused eslint-disable directives. If set, it overrides namelike settings in your configurations.",
-          "type": "string",
-          "default": "",
-          "enum": [
-            {
-              "value": "error",
-              "description": "severity: error"
-            },
-            {
-              "value": "warn",
-              "description": "severity: warn"
-            },
-            {
-              "value": "off",
-              "description": "severity: off"
-            },
-            {
-              "value": "",
-              "description": "not set"
-            }
-          ],
-          "order": 4
-        },
-        "rulePaths": {
-          "title": "Custom rule directories",
-          "description": "An array of additional directories (rule paths), to load custom rules from.",
-          "type": "array",
-          "default": [],
-          "items": {
-            "type": "string"
-          },
-          "order": 5
-        },
-        "useEslintrc": {
-          "title": "Use .eslintrc.* files",
-          "description": "Automatically load and use configuration files, that can be found in default locations.",
-          "type": "boolean",
-          "default": true,
-          "order": 6
-        }
-      }
-    },
     "grammarScopes": {
       "title": "Grammar scopes",
       "description": "Run `Editor: Log Cursor Scope` to determine file scopes.",
@@ -123,7 +37,69 @@
       ],
       "items": {
         "type": "string"
-      }
+      },
+      "order": 1
+    },
+    "extends": {
+      "title": "Extends",
+      "description": "List of ESLint shareable config names. See [shareable configs](http://eslint.org/docs/developer-guide/shareable-configs). Example: **standard, standard-react**",
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "order": 2
+    },
+    "useEslintrc": {
+      "title": "Use .eslintrc.* files",
+      "description": "Automatically load and use configuration files found in default locations.",
+      "type": "boolean",
+      "default": true,
+      "order": 3
+    },
+    "overrideConfigFile": {
+      "title": "Override config file",
+      "description": "Path to a configuration file that overrides all other config files.",
+      "type": "string",
+      "default": "",
+      "order": 4
+    },
+    "cwd": {
+      "title": "Working directory",
+      "description": "The current working directory (must be an absolute path).",
+      "type": "string",
+      "default": "",
+      "order": 5
+    },
+    "rulePaths": {
+      "title": "Custom rule directories",
+      "description": "Additional directories to load custom rules from.",
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "order": 6
+    },
+    "allowInlineConfig": {
+      "title": "Allow inline configuration",
+      "description": "If false, ESLint suppresses directive comments in source code.",
+      "type": "boolean",
+      "default": true,
+      "order": 7
+    },
+    "reportUnusedDisableDirectives": {
+      "title": "Report unused disable directives",
+      "description": "Severity for unused eslint-disable directives.",
+      "type": "string",
+      "default": "",
+      "enum": [
+        { "value": "", "description": "Not set" },
+        { "value": "error", "description": "Error" },
+        { "value": "warn", "description": "Warning" },
+        { "value": "off", "description": "Off" }
+      ],
+      "order": 8
     }
   },
   "dependencies": {
