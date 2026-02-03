@@ -1,5 +1,5 @@
 #
-#   Install package dependencies into atoms fast-eslint-8 package folder
+#   Install package dependencies into atoms linter-eslint package folder
 #
 
 $atomdir     = "$env:LOCALAPPDATA\atom"
