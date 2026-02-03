@@ -11,7 +11,6 @@ ESLint v8 linter provider. Lints JavaScript files using project-level `.eslintrc
 - **Ignore support** — respects `.eslintignore` files
 - **Precise highlighting** — token-level range highlighting for lint messages
 - **Auto-fix** — supports fix suggestions from ESLint rules
-- **Global default config** — base ESLint config that applies to all projects
 
 ## Installation
 
@@ -21,12 +20,7 @@ To install `linter-eslint-8` search for [linter-eslint-8](https://web.pulsar-edi
 
 Commands available in `atom-workspace`:
 
-- `linter-eslint-8:reload`: reset the ESLint engine,
-- `linter-eslint-8:open-config`: open the global default ESLint config.
-
-## Global default config
-
-You can create a global ESLint config that applies as a base to all projects. Run `Linter Eslint 8: Open Config` from the command palette to create and edit `~/.pulsar/eslint-8.default.js`. Project `.eslintrc.*` files will extend/override these settings.
+- `linter-eslint-8:reload`: reset the ESLint engine and re-lint open files.
 
 ## Contributing
 
