@@ -6,17 +6,6 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "activationHooks": [
-    "language-javascript:grammar-used",
-    "language-babel:grammar-used",
-    "language-typescript:grammar-used"
-  ],
-  "activationCommands": {
-    "atom-workspace": [
-      "linter-eslint-8:reload",
-      "linter-eslint-8:lint-project"
-    ]
-  },
   "keywords": [
     "javascript",
     "linter",
