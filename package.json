@@ -11,6 +11,12 @@
     "language-babel:grammar-used",
     "language-typescript:grammar-used"
   ],
+  "activationCommands": {
+    "atom-workspace": [
+      "linter-eslint-8:reload",
+      "linter-eslint-8:lint-project"
+    ]
+  },
   "keywords": [
     "javascript",
     "linter",
@@ -44,6 +50,13 @@
   },
   "dependencies": {
     "eslint": "^8.11.0"
+  },
+  "consumedServices": {
+    "linter-indie": {
+      "versions": {
+        "2.0.0": "consumeIndie"
+      }
+    }
   },
   "providedServices": {
     "linter": {
