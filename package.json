@@ -12,6 +12,17 @@
     "eslint"
   ],
   "main": "lib/main.js",
+  "activationHooks": [
+    "language-javascript:grammar-used",
+    "language-babel:grammar-used",
+    "language-typescript:grammar-used"
+  ],
+  "activationCommands": {
+    "atom-workspace": [
+      "linter-eslintx:reload",
+      "linter-eslintx:lint-project"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/asiloisad/pulsar-linter-eslintx.git"
