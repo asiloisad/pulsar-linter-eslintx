@@ -2,7 +2,7 @@
   "name": "linter-eslintx",
   "version": "0.0.0",
   "license": "MIT",
-  "description": "ESLint linter provider.",
+  "description": "ESLint linter provider with bundled v8 and v9 support.",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
@@ -17,28 +17,24 @@
     "url": "https://github.com/asiloisad/pulsar-linter-eslintx.git"
   },
   "configSchema": {
-    "grammarScopes": {
-      "title": "Grammar scopes",
-      "description": "Run `Editor: Log Cursor Scope` to determine file scopes.",
-      "type": "array",
-      "default": [
-        "source.js",
-        "source.jsx",
-        "source.es6",
-        "source.js.jsx",
-        "source.babel",
-        "source.js-semantic",
-        "source.ts",
-        "source.tsx"
-      ],
-      "items": {
-        "type": "string"
-      },
+    "useBuiltin": {
+      "title": "Use Bundled ESLint",
+      "description": "Use bundled ESLint when project doesn't have ESLint installed. Auto-detects v8 or v9 based on config format.",
+      "type": "boolean",
+      "default": true,
       "order": 1
+    },
+    "debug": {
+      "title": "Debug Mode",
+      "description": "Log ESLint detection info to developer console.",
+      "type": "boolean",
+      "default": false,
+      "order": 2
     }
   },
   "dependencies": {
-    "eslint": "^8.11.0"
+    "eslint8": "npm:eslint@^8.57.0",
+    "eslint9": "npm:eslint@^9.0.0"
   },
   "consumedServices": {
     "linter-indie": {

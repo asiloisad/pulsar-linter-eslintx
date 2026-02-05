@@ -1,13 +1,13 @@
 # linter-eslintx
 
-ESLint v8 linter provider. Lints JavaScript files using project-level `.eslintrc.*` configuration files. Package used linter top-level API to visualize errors and other types of messages with ease.
+ESLint linter provider with bundled v8 and v9 support. Uses project-installed ESLint when available, falls back to bundled version.
 
 ## Features
 
-- **JavaScript & TypeScript** — activates automatically when JS or TS file is opened
-- **Project config** — looks for `.eslintrc.*` files in the project tree (`.eslintrc.js`, `.eslintrc.json`, `.eslintrc.yaml`, etc.)
+- **Project ESLint first** — uses ESLint from your project's `node_modules` if installed
+- **Bundled fallback** — includes ESLint v8 and v9, no global install needed
+- **Multi-project support** — each project in workspace uses its own ESLint independently
 - **Silent mode** — if no ESLint config is found, the package silently does nothing
-- **Bundled ESLint v8** — no global install needed
 - **Ignore support** — respects `.eslintignore` files
 - **Precise highlighting** — token-level range highlighting for lint messages
 - **Auto-fix** — supports fix suggestions from ESLint rules
@@ -16,11 +16,82 @@ ESLint v8 linter provider. Lints JavaScript files using project-level `.eslintrc
 
 To install `linter-eslintx` search for [linter-eslintx](https://web.pulsar-edit.dev/packages/linter-eslintx) in the Install pane of the Pulsar settings or run `ppm install linter-eslintx`. Alternatively, you can run `ppm install asiloisad/pulsar-linter-eslintx` to install a package directly from the GitHub repository.
 
+## Plugins
+
+If your project uses TypeScript, React, or other plugins, install ESLint locally:
+
+```bash
+npm install eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+```
+
+The bundled ESLint is minimal and intended for basic linting only (no plugins).
+
+## How It Works
+
+1. **Project ESLint** — First checks for ESLint in your project's `node_modules/eslint`
+2. **Bundled fallback** — If no project ESLint found, tries bundled v8, then v9
+3. **Silent skip** — If no ESLint config found (tried both versions), silently skips the project
+
+**Caching:** ESLint resolution and config detection happen on first lint and are cached per project. Use `linter-eslintx:reload` to clear the cache and re-detect (e.g., after installing ESLint or adding a config file).
+
 ## Commands
 
 Commands available in `atom-workspace`:
 
-- `linter-eslintx:reload`: reset the ESLint engine and re-lint open files.
+- `linter-eslintx:reload` — reset the ESLint engine cache and re-detect,
+- `linter-eslintx:lint-project` — lint all files in the project.
+
+## Troubleshooting
+
+Enable **Debug Mode** in settings and open the developer console (View → Developer → Toggle Developer Tools).
+
+**Project ESLint found:**
+```
+[linter-eslintx] Project: C:\projects\my-app
+[linter-eslintx] Project ESLint found: v9.0.0
+[linter-eslintx] Path: C:\projects\my-app\node_modules\eslint
+```
+
+**Using bundled ESLint:**
+```
+[linter-eslintx] Project: C:\projects\my-app
+[linter-eslintx] Project ESLint not found: No eslint in project node_modules
+[linter-eslintx] Using bundled ESLint: bundled-v8, v8.57.1
+```
+
+**No config found:**
+```
+[linter-eslintx] No ESLint config found (tried both v8 and v9), skipping project
+```
+
+## Example Configs
+
+**ESLint v8** (`.eslintrc.js`):
+```ka
+module.exports = {
+  env: { browser: true, es2021: true, node: true },
+  extends: "eslint:recommended",
+  parserOptions: { ecmaVersion: "latest", sourceType: "module" },
+  rules: {},
+};
+```
+
+**ESLint v9** (`eslint.config.js`):
+```js
+const js = require("@eslint/js");
+
+module.exports = [
+  js.configs.recommended,
+  {
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
+      globals: { console: "readonly" },
+    },
+    rules: {},
+  },
+];
+```
 
 ## Contributing
 
