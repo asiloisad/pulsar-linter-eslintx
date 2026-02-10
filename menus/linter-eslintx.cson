@@ -1,0 +1,14 @@
+'menu': [
+  {
+    label: 'Packages'
+    submenu: [
+      {
+        label: 'Linter ESLintX'
+        submenu: [
+          { label: 'Reload', command: 'linter-eslintx:reload' }
+          { label: 'Lint Project', command: 'linter-eslintx:lint-project' }
+        ]
+      }
+    ]
+  }
+]
