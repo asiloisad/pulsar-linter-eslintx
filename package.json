@@ -35,12 +35,19 @@
       "default": true,
       "order": 1
     },
+    "deleteOnOpen": {
+      "title": "Delete Project Lint on File Open",
+      "description": "Delete project-wide lint messages for a file when it is opened in the editor. Restart needed.",
+      "type": "boolean",
+      "default": true,
+      "order": 2
+    },
     "debug": {
       "title": "Debug Mode",
       "description": "Log ESLint detection info to developer console.",
       "type": "boolean",
       "default": false,
-      "order": 2
+      "order": 3
     }
   },
   "dependencies": {
