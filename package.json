@@ -42,12 +42,12 @@
       "default": true,
       "order": 2
     },
-    "debug": {
+    "debugMode": {
       "title": "Debug Mode",
       "description": "Log ESLint detection info to developer console.",
       "type": "boolean",
       "default": false,
-      "order": 3
+      "order": 99
     }
   },
   "dependencies": {
