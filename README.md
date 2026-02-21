@@ -4,13 +4,13 @@ ESLint linter provider with bundled v8 and v9 support. Uses project-installed ES
 
 ## Features
 
-- **Project ESLint first** — uses ESLint from your project's `node_modules` if installed
-- **Bundled fallback** — includes ESLint v8 and v9, no global install needed
-- **Multi-project support** — each project in workspace uses its own ESLint independently
-- **Silent mode** — if no ESLint config is found, the package silently does nothing
-- **Ignore support** — respects `.eslintignore` files
-- **Precise highlighting** — token-level range highlighting for lint messages
-- **Auto-fix** — supports fix suggestions from ESLint rules
+- **Project ESLint first**: uses ESLint from your project's `node_modules` if installed.
+- **Bundled fallback**: includes ESLint v8 and v9, no global install needed.
+- **Multi-project support**: each project in workspace uses its own ESLint independently.
+- **Silent mode**: if no ESLint config is found, the package silently does nothing.
+- **Ignore support**: respects `.eslintignore` files.
+- **Precise highlighting**: token-level range highlighting for lint messages.
+- **Auto-fix**: supports fix suggestions from ESLint rules.
 
 ## Installation
 
@@ -28,9 +28,9 @@ The bundled ESLint is minimal and intended for basic linting only (no plugins).
 
 ## How It Works
 
-1. **Project ESLint** — First checks for ESLint in your project's `node_modules/eslint`
-2. **Bundled fallback** — If no project ESLint found, tries bundled v8, then v9
-3. **Silent skip** — If no ESLint config found (tried both versions), silently skips the project
+1. **Project ESLint**: First checks for ESLint in your project's `node_modules/eslint`.
+2. **Bundled fallback**: If no project ESLint found, tries bundled v8, then v9.
+3. **Silent skip**: If no ESLint config found (tried both versions), silently skips the project.
 
 **Caching:** ESLint resolution and config detection happen on first lint and are cached per project. Use `linter-eslintx:reload` to clear the cache and re-detect (e.g., after installing ESLint or adding a config file).
 
@@ -38,8 +38,8 @@ The bundled ESLint is minimal and intended for basic linting only (no plugins).
 
 Commands available in `atom-workspace`:
 
-- `linter-eslintx:reload` — reset the ESLint engine cache and re-detect,
-- `linter-eslintx:lint-project` — lint all files in the project.
+- `linter-eslintx:reload`: reset the ESLint engine cache and re-detect,
+- `linter-eslintx:lint-project`: lint all files in the project.
 
 ## Troubleshooting
 
@@ -95,4 +95,4 @@ module.exports = [
 
 ## Contributing
 
-Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub — any feedback’s welcome!
+Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub — any feedback's welcome!
