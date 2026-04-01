@@ -2,7 +2,7 @@
   "name": "linter-eslintx",
   "version": "0.2.2",
   "license": "MIT",
-  "description": "ESLint linter provider with bundled v8 and v9 support.",
+  "description": "ESLint linter provider with bundled v8 and v9 support",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
